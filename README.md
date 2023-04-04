@@ -14,7 +14,7 @@
     <p align = "justify"> A regular account user will have access to all the functions provided by the system, which includes the liabilities checker, announcement tab, and attendance checker. </p> 
 
 - :ticket: Administrator Account 
-    <p align = "justify"> As an administrator, alongside with the other functions available to regular accounts, it will include three more additional functions. The first one is the ability to post any information into the announcement tab and it is followed by the ability to change the password verification. The third and last function is the ability to add/remove liabilities inside the liabilities checker. </p> 
+    <p align = "justify"> As an administrator, in addition to the functions available to regular accounts, three additional functions will be provided. The first is the ability to post any information on the announcement tab, followed by the ability to modify the password verification. The third and final function is the ability to add or remove liabilities in the liabilities checker. </p> 
 
 ***
 
