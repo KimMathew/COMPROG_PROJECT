@@ -6,7 +6,7 @@
 
 ***
 
-### :white_check_mark: User Accounts
+### :hammer_and_wrench: User Accounts
 
 <p align = "justify"> Each individual will have their own accounts already registered to the system. It will be categorized into two kinds of accounts; Regular and Admin. </p>
 
@@ -26,19 +26,19 @@
 
 ***
 
-### :white_check_mark: Liabilities Checker
+### :hammer_and_wrench: Liabilities Checker
 
 <p align = "justify"> This function offers a way for a dormitory to have a more systematic way of managing their liabilities. This is where the admin can add/remove liabilities which are visible to everyone's account. Another page is also included here that would give each user  the option to check whether they are already paid to a specific liability. The users can’t  immediately uncheck their liabilities. There will be a prompt that will ask for a password set by the admin to verify the validity of their payment. </p>
 
 ***
 
-### :white_check_mark: Announcement Tab
+### :hammer_and_wrench: Announcement Tab
 
 <p align = "justify"> This function offers a way for the admin to announce anything. Once successfully published, it is already available to any user that will log in. </p>
 
 ***
 
-### :white_check_mark: Attendance Checker
+### :hammer_and_wrench: Attendance Checker
 
 <p align = "justify"> This function offers a way to log the attendance of each user as they leave and enter the dormitory. The key features of this functions are the following: </p>
 
@@ -58,7 +58,7 @@
 
 ***
 
-## :v: Significance
+## :mag_right: Significance
 
 <p align = "justify"> This project is in relation to the Sustainable Development Goals(SDG) No.4, Quality Education. The students who have begun living in their own individual dormitories are the sole intended users of this project. This will help them to be more organized and responsible students while only living on their own far from their home. They will be able to manage their liabilities much more quickly and devote more time to their education as a result. Additionally,  attendance checkers are also included for additional security measures to know each user’s whereabouts. </p>
 
