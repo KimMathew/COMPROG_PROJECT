@@ -2,27 +2,19 @@
 
 ## :mega: Description and Purpose
 
-<p align = "justify"> This system is primarily focused on helping the students to be more organized and responsible during their stay in their designated dorm. These are the functions offered by the system: </p>
+<p align = "justify"> The primary focus of this system is to assist students in maintaining a more organized and responsible lifestyle during their designated dormitory stay. The system offers the following functions: </p>
 
 ***
 
 ### :hammer_and_wrench: User Accounts
 
-<p align = "justify"> Each individual will have their own accounts already registered to the system. It will be categorized into two kinds of accounts; Regular and Admin. </p>
+<p align = "justify"> Each individual will have their own account registered in the system, categorized as either Regular or Admin. </p>
 
-<details>
-  <summary> :student: Regular Account </summary>
-  
-  <p align = "justify"> - As a regular account, the user will have access to all the functions offered by the system. These include liabilities checker, announcement  tab, and Attendance checker. </p> 
+- :student: Regular Account
+    <p align = "justify"> A regular account user will have access to all the functions provided by the system, which includes the liabilities checker, announcement tab, and attendance checker. </p> 
 
-</details>
-
-<details>
-  <summary> :ticket: Administrator Account </summary>
-  
-  <p align = "justify"> - As an administrator, alongside with the other functions available to regular accounts, it will include three more additional functions. The first one is the ability to post any information into the announcement tab and it is followed by the ability to change the password verification. The third and last function is the ability to add/remove liabilities inside the liabilities checker. </p> 
-
-</details>
+- :ticket: Administrator Account 
+    <p align = "justify"> As an administrator, alongside with the other functions available to regular accounts, it will include three more additional functions. The first one is the ability to post any information into the announcement tab and it is followed by the ability to change the password verification. The third and last function is the ability to add/remove liabilities inside the liabilities checker. </p> 
 
 ***
 
