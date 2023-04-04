@@ -44,6 +44,6 @@
 
 ## :mag_right: Significance
 
-![4th SDG](https://globalgoalscms.co.uk/wp-content/uploads/2021/09/4.png = 400x300) <p align = "justify"> This project is aligned with the fourth Sustainable Development Goal (SDG) of Quality Education. The project's sole intended users are students who live in individual dormitories. The project aims to assist them in becoming more organized and responsible while living far from their homes, allowing them to manage their liabilities more efficiently and devote more time to their education. Furthermore, attendance checkers are included as an additional security measure to track the whereabouts of each user. </p>
+<p align = "justify"> This project is aligned with the fourth Sustainable Development Goal (SDG) of Quality Education. The project's sole intended users are students who live in individual dormitories. The project aims to assist them in becoming more organized and responsible while living far from their homes, allowing them to manage their liabilities more efficiently and devote more time to their education. Furthermore, attendance checkers are included as an additional security measure to track the whereabouts of each user. </p>
 
 
