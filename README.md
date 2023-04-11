@@ -1,4 +1,8 @@
-# Dorm Regulation System
+<p align="center">
+<img src="https://cdn.iconscout.com/icon/free/png-256/dormitory-2540575-2125119.png?f=avif&w=128"/>
+</p>
+
+<h1 align="center" padding=0> Dorm Regulation System </h1>
 
 ## :mega: Description and Purpose
 
@@ -44,6 +48,11 @@
 
 ## :mag_right: Significance
 
+<img src="https://globalgoalscms.co.uk/wp-content/uploads/2021/09/4.png" align="left" width=130 height=120/>
+
 <p align = "justify"> This project is aligned with the fourth Sustainable Development Goal (SDG) of Quality Education. The project's sole intended users are students who live in individual dormitories. The project aims to assist them in becoming more organized and responsible while living far from their homes, allowing them to manage their liabilities more efficiently and devote more time to their education. Furthermore, attendance checkers are included as an additional security measure to track the whereabouts of each user. </p>
+
+
+
 
 
