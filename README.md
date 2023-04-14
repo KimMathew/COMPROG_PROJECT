@@ -2,7 +2,15 @@
 <img src="https://cdn.iconscout.com/icon/free/png-256/dormitory-2540575-2125119.png?f=avif&w=128"/>
 </p>
 
-<h1 align="center" padding=0> Dorm Regulation System </h1>
+<h1 align="center"> Dorm Regulation System </h1>
+
+<p align="center"> 
+    Proposed by: <br><br>
+    <a href="https://github.com/reinierAdrianLuna"> Jon Endrick Babao </a> <br>
+    <a href="https://github.com/KimMathew"> Kim Mathew C. Bautista </a> <br>
+    <a href="https://github.com/KimMathew"> Gian Ezekiel Gersaniba </a> <br>
+    <a href="https://github.com/reinierAdrianLuna"> Reinier Adrian R. Luna </a> 
+</p>
 
 ## :mega: Description and Purpose
 
