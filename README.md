@@ -2,7 +2,7 @@
     <img src="https://github.com/KimMathew/COMPROG_PROJECT/blob/main/ASSETS/LOGO.jpg" width=300 height=200/>
 </p>
 
-<h1 align="center"> Dormi-Py </h1>
+***
 
 ## :mega: Description and Purpose
 
