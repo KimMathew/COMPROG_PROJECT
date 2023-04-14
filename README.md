@@ -2,7 +2,7 @@
     <img src="https://cdn.iconscout.com/icon/free/png-256/dormitory-2540575-2125119.png?f=avif&w=128"/>
 </p>
 
-<h1 align="center"> Dorm Regulation System </h1>
+<h1 align="center"> Dormi.Py </h1>
 
 ## :mega: Description and Purpose
 
