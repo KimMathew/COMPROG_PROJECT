@@ -80,7 +80,7 @@
 
 ## :pen: Authors:
 
-- <a href="https://github.com/reinierAdrianLuna"> Jon Endrick M. Babao </a> <br>
+- <a href="https://github.com/JonBabao"> Jon Endrick M. Babao </a> <br>
 - <a href="https://github.com/KimMathew"> Kim Mathew C. Bautista </a> <br>
 - <a href="https://github.com/GianEzekiel"> Gian Ezekiel S. Gersaniba </a> <br>
 - <a href="https://github.com/reinierAdrianLuna"> Reinier Adrian R. Luna </a> 
