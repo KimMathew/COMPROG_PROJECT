@@ -32,7 +32,7 @@ while True:
                 admin.options() #Display the options of the admin
                 user_choice2 = input("\nYour Choice: ")
                 if user_choice2 == '1': #Allow the admin to create an announcement
-                    create_announcement()
+                    announcement_admin()
                 elif user_choice2 == '2': #Allow the admin to add liabilities
                     admin.liab_admin()
                 elif user_choice2 == '3': #Allow the admin to see the attendance table and the people at dorm
