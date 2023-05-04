@@ -84,6 +84,7 @@
 - <a href="https://github.com/KimMathew"> Kim Mathew C. Bautista </a> <br>
 - <a href="https://github.com/GianEzekiel"> Gian Ezekiel S. Gersaniba </a> <br>
 - <a href="https://github.com/reinierAdrianLuna"> Reinier Adrian R. Luna </a> 
+- <a href="https://github.com/coispers"> Francois Louise C. Mosuela </a>
 
 
 
