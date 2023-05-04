@@ -36,7 +36,7 @@
 ### :hammer_and_wrench: Liabilities Checker
 
 <p align = "justify"> 
-    This function provides a systematic approach for dormitories to manage their liabilities. The administrator can add or remove liabilities that are visible to every     account. Additionally, a page is included where each user can verify whether they have paid for a specific liability. Users cannot immediately uncheck their           liabilities; a prompt will ask for a password set by the administrator to confirm the validity of their payment. 
+    This function provides a systematic approach for dormitories to manage their liabilities. The administrator can add or remove liabilities that are visible to every account. 
 </p>
 
 ***
