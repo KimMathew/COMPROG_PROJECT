@@ -145,7 +145,7 @@ class Admin:
                 liab_price = input("Price: ")
                 price = int(liab_price)
                 liabilities[liab_name] = price
-                with open('liabs_of_users/liabilities.txt', 'a') as f:
+                with open('liabs_of_users/liabilities.txt', 'a') as f:   #writes the inputted liability inside the TXT file
                     f.write(f"{liab_name}:{price}\n")
                 print(f"\n{liab_name} has been added with price {price}.")
             
