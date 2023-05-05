@@ -496,8 +496,3 @@ class Regular(Admin):
         print("\n[1] Liabilities")
         print("[2] Attendance")
         print("[3] Log out")
-
-
-
-
-
