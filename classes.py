@@ -84,20 +84,36 @@ class Admin:
                     print(f"{rows[i][0]} is currently at home.")
     
     def liab_admin(self):
-        liabilities = {} # Load current liabilities from file
+        """
+        Welcome to the admin liability function!
+
+        This function is where the admin manage the liabilites of the dorm residents
+        """
+        liabilities = {} #just used for the initiliazation of the liabilities
+        """
+        Before officially starting the code, liabilities.txt is where the liabilites for all the tenants will 
+        be stored. In short simple term, this is a general liabilities storage
+
+        As the admin input the name and price of the liabilities, it will be formatted as follows:
+        
+        liab_Name : Price
+
+        """
         with open('liabs_of_users/liabilities.txt', 'r') as f:
             for line in f:
                 line = line.strip()
                 if not line:
                     continue
-                parts = line.split(':')
-                if len(parts) != 2:
+                parts = line.split(':')       #ensure that we can distingusish the liab name from its price so we can easily call it
+                if len(parts) != 2:           #later on the code
                     continue
                 name, price = parts
                 if not price.isdigit():
                     continue
                 liabilities[name] = int(price)
 
+        #This is the menu option for the admin liab management
+        # while here is used for the program to completely works as intended
         while True:
             print("\nWhat do you want to do?")
             print("[1] Add liability to all")
@@ -108,6 +124,18 @@ class Admin:
 
             option = input("\nYour Choice: ")
 
+            """
+        
+        "Adding liability to all"
+            
+        First, the user will be prompted to enter the name and price of the liability they wish to add. 
+            
+        Once they have provided this information, the liabilities.txt file will be reopened. 
+            
+        This time, the name and price of the liability will be written to the file.
+
+        """
+
             if option == '1':
                 liab_name = input("\nInput the name of liability: ")
                 liab_price = input("Price: ")
@@ -116,7 +144,43 @@ class Admin:
                 with open('liabs_of_users/liabilities.txt', 'a') as f:
                     f.write(f"{liab_name}:{price}\n")
                 print(f"\n{liab_name} has been added with price {price}.")
+
+                """
+
+                
+
+                To begin, we will open the file liabilities.txt and read its contents.
+
+                The first if-else statement, "if len(file_contents) != 0," checks whether the text file contains any content.
+                If the program detects that the TXT file is empty, it will display a prompt saying 'No liabilities to remove'.
+                Simultaneously, the user will be presented with an option to return to the main menu.
+
+                If the program successfully detects contents within the TXT file, the process will proceed.
+
+                A list of the liabilities will be shown to the user
+
+                They can remove a specific liability by choosing the number designated to each liability.
+
+                """
+            
             elif option == '2':
+                """
+                    "Remove liability to all"
+
+                    If option is '2', remove a liability from a txt file containing a list of liabilities.
+
+                    Args:
+                    - option: a string representing the user's option
+
+                    Returns:
+                    - None
+
+                    The function prompts the user to input a number corresponding to the liability they want to remove,
+                    or '0' to cancel the operation. If the input is invalid, the function continues prompting the user
+                    until valid input is received. If the input is valid, the function removes the liability from the list
+                    and updates the txt file with the remaining liabilities. If the txt file is empty, the function informs
+                    the user that there are no liabilities to be removed.
+                """
                 while True:
                     with open('liabs_of_users/liabilities.txt', 'r') as f:
                         file_contents = f.read()
@@ -151,7 +215,24 @@ class Admin:
                             else:
                                 print("\nInvalid choice! Please try again!")
                                 continue
+
+                
             elif option == '3':
+                """
+
+                "Assign liability to a specific user"
+                
+                Assigns a liability to a user and writes the liability details to a file.
+
+                Args:
+                    option (str): The selected option for assigning a liability.
+                    file_dict (dict): A dictionary that maps usernames to their respective liability files.
+                    liabilities (dict): A dictionary containing the liability details.
+
+                Returns:
+                    None
+
+                """
                 while True:
                     print("\nWhich user do you want to assign a liability to?")
                     option_1 = input("Insert his/her username: ")
