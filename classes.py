@@ -124,19 +124,23 @@ class Admin:
 
             option = input("\nYour Choice: ")
 
-            """
-        
-        "Adding liability to all"
-            
-        First, the user will be prompted to enter the name and price of the liability they wish to add. 
-            
-        Once they have provided this information, the liabilities.txt file will be reopened. 
-            
-        This time, the name and price of the liability will be written to the file.
-
-        """
 
             if option == '1':
+                """
+                "Adding liability to all"
+
+                Adds a liability to the given dictionary of liabilities and saves it to a text file.
+
+                Parameters:
+                - option: a string representing the user's selected option
+                - liabilities: a dictionary containing the user's current liabilities
+
+                If option is '1', prompts the user to input the name and price of the liability, and adds it to the dictionary
+                with the name as key and price as value. Also writes the liability to a text file 'liabilities.txt'.
+                Prints a message confirming that the liability has been added.
+
+                    Returns: None
+                """
                 liab_name = input("\nInput the name of liability: ")
                 liab_price = input("Price: ")
                 price = int(liab_price)
@@ -144,24 +148,6 @@ class Admin:
                 with open('liabs_of_users/liabilities.txt', 'a') as f:
                     f.write(f"{liab_name}:{price}\n")
                 print(f"\n{liab_name} has been added with price {price}.")
-
-                """
-
-                
-
-                To begin, we will open the file liabilities.txt and read its contents.
-
-                The first if-else statement, "if len(file_contents) != 0," checks whether the text file contains any content.
-                If the program detects that the TXT file is empty, it will display a prompt saying 'No liabilities to remove'.
-                Simultaneously, the user will be presented with an option to return to the main menu.
-
-                If the program successfully detects contents within the TXT file, the process will proceed.
-
-                A list of the liabilities will be shown to the user
-
-                They can remove a specific liability by choosing the number designated to each liability.
-
-                """
             
             elif option == '2':
                 """
@@ -255,6 +241,16 @@ class Admin:
                         print("\nInvalid username! Please try again!")
                         continue
             elif option == '4':
+                """
+                Allows the user to remove a liability from a specified user's file.
+
+                Args:
+                    option (str): The selected option for removing a liability.
+                    username_to_file (dict): A dictionary that maps usernames to their respective liability files.
+
+                Returns:
+                    None
+                """
                 username_to_file = {
                     'Russel': 'liabs_of_users/russel.txt',
                     'Mochu': 'liabs_of_users/mochu.txt',
