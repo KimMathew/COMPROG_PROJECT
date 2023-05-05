@@ -13,7 +13,19 @@ class Admin:
     def __init__(self, username):
         self.username = username
 
-    def show_announcement(self): #Will show the announcement created by admin
+    def show_announcement(self):
+        """
+        The function below allows to show the announcement created by the admin.
+
+        Reads the announcements from the 'announcement.txt' file and prints them to the console.
+        If no announcements are found, prints a message indicating there are no announcements.
+
+        Parameters:
+        - self: the object instance calling the method
+
+        Returns:
+        - None
+        """
         with open('announcement.txt', 'r') as f:
             announcements = f.readlines()
             if announcements:
@@ -22,7 +34,19 @@ class Admin:
             else:
                 print("\nNo Announcement to be shown")
 
-    def announcement_admin(self): #Allow admin to view, create, or remove an announcement
+    def announcement_admin(self): 
+        """
+        Allows the admin to view, create, or remove an announcement.
+
+        Displays a menu with options for viewing, creating, or removing announcements from a file called 'announcement.txt'.
+        The function executes the chosen action and continues to display the menu until the admin selects the "Back" option.
+
+        Parameters:
+        - self: the object instance calling the method
+
+        Returns:
+        - None
+        """
         while True:
             print("\n[1] View all announcements")
             print("[2] Create a new announcement")
@@ -30,7 +54,7 @@ class Admin:
             print("[4] Back")
 
             choice = input("\nYour Choice: ")
-            if choice == '1': #View Announcement
+            if choice == '1': #For Viewing Announcement
                 while True:
                     self.show_announcement()
                     choice2 = input("\nType 0 to back: ")
@@ -41,13 +65,13 @@ class Admin:
                         print("\nInvalid Choice! Please Try Again!")
                         continue
 
-            elif choice == '2': #Add Announcement
+            elif choice == '2': #For Adding Announcement
                 with open('announcement.txt', 'a') as f:
                     f.write(input("\nWhat do you want to announce? "))
                     f.write("\n")
                     print("\nYour announcement has been added!")
             
-            elif choice == '3': #Remove Announcement
+            elif choice == '3': #For Removing Announcement
                     with open('announcement.txt', 'r') as f:
                         announcements = f.readlines()
                     if announcements:
@@ -71,11 +95,36 @@ class Admin:
             else:
                 print("\nInvalid input! Please try again")
 
-    def attendace_table(self): #Will show the attendance table of the users
+    def attendace_table(self):
+        """
+        Reads and displays an attendance table from a CSV file called 'attendance.csv'.
+
+        Uses the Pandas library to read the CSV file and store its contents in a DataFrame object.
+        The function then prints the DataFrame to the console, which displays the attendance table.
+
+        Parameters:
+        - self: the object instance calling the method
+
+        Returns:
+        - None
+        """ 
         table = pd.read_csv("attendance.csv")
         print("\n", table, "\n")
 
-    def who_is_at_home(self): #Will display the people at home
+    def who_is_at_home(self):
+        """
+        Reads an attendance CSV file called 'attendance.csv' and prints the names of people who are currently at home.
+
+        Uses the csv library to read the CSV file and store its contents in a list of lists.
+        The function then loops through each row and checks if the second column value is 'Time-in'.
+        If it is, the function assumes the person is currently at home and prints their name to the console.
+
+        Parameters:
+        - self: the object instance calling the method
+
+        Returns:
+        - None
+        """ 
         with open('attendance.csv', mode='r', newline='') as csv_file:
             updater = csv.reader(csv_file)
             rows = list(updater)
@@ -323,7 +372,19 @@ class Admin:
                 print("\nInvalid input! Please try again")
                 continue
 
-    def options(self): #Options of Admin in Home Page
+    def options(self):
+        """
+        Displays a menu of options for the admin.
+
+        Prints a numbered list of options to the console that the user can choose from.
+        The function does not perform any action but only displays the options.
+
+        Parameters:
+        - self: the object instance calling the method
+
+        Returns:
+        - None
+        """
         print("\n[1] Make an Announcement")
         print("[2] Add/Remove Liabilities")
         print("[3] View Attendance")
@@ -334,19 +395,35 @@ class Regular(Admin):
         self.username = username
 
     def attendance_checker(self, status, choice):
-        with open('attendance.csv', mode='r', newline='') as csv_file: # update on csv
+        """
+        Updates the attendance status of the user.
+
+        Modifies the user's attendance status (time-in or time-out) in the 'attendance.csv' file,
+        along with the reason for leaving (if applicable). The function prompts the user to enter
+        their reason for leaving when checking out. The function then updates the CSV file with
+        the new attendance status and reason.
+
+        Parameters:
+        - self: the object instance calling the method
+        - status (str): the attendance status of the user ('Time-in' or 'Time-out')
+        - choice (str): the choice of the user ('1' for time-in or '2' for time-out')
+
+        Returns:
+        - None
+        """
+        with open('attendance.csv', mode='r', newline='') as csv_file: # Update on CSV
             updater = csv.reader(csv_file)
             rows = list(updater)
 
-            for i in range(len(rows)): # updating the status
+            for i in range(len(rows)): # Updating the status
                 if self.username in rows[i]:
                     rows[i][1] = status
                     break
 
-            reasons_collection = ( # updating the reasons
+            reasons_collection = ( # Updating the reasons
                 "School", "Meeting with Friends", "Meeting with family", "Going Home", "Buy Grocery", "Other Reason")
             
-            if choice == '2': # getting the reason of the user for time-out
+            if choice == '2': # Getting the reason of the user for time-out
                 print("\nSelect your reason for leaving: ")
                 for i, reason in enumerate(reasons_collection):
                     print(f"[{i + 1}] {reason}")
@@ -360,7 +437,7 @@ class Regular(Admin):
                     if self.username in rows[i]:
                         rows[i][2] = reason
 
-            if choice == '1': # change reasons to default
+            if choice == '1': # Change reasons to default
                 print(f"\n{self.username} is Time-in!")
                 for i in range(len(rows)):
                     if self.username in rows[i]:
@@ -372,6 +449,17 @@ class Regular(Admin):
             writer.writerows(rows)
 
     def reg_liab(self, username):
+        """
+        Display a user's liabilities by reading and concatenating the contents of their personal liability file and 
+        a general liability file.
+
+        Parameters:
+        - self: the object instance
+        - username (str): the username of the user whose liabilities will be displayed
+    
+        Returns: 
+        - None
+        """
         filename = user_liabs.get(username)
 
         if filename:
@@ -393,6 +481,18 @@ class Regular(Admin):
                 print("\nNo liabilities")
 
     def options(self):
+        """
+        Displays a menu of options for the regular.
+
+        Prints a numbered list of options to the console that the user can choose from.
+        The function does not perform any action but only displays the options.
+
+        Parameters:
+        - self: the object instance calling the method
+
+        Returns:
+        - None
+        """
         print("\n[1] Liabilities")
         print("[2] Attendance")
         print("[3] Log out")
