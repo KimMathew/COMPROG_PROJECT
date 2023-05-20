@@ -466,7 +466,7 @@ class Regular(Admin):
                         reason = input("\nPlease specify your reason for leaving: ")
                         break
                     else:
-                        print("\nInvalid Input!")
+                        print("\nInvalid Input! Please Try Again!")
                         time.sleep(1)
                         continue
 
