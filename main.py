@@ -10,7 +10,7 @@ accounts = {  #pre-defined accounts
 
 while True:
     os.system('cls')
-    print("\nDORMI-PY") 
+    print("DORMI-PY") 
     print("\n[1] Log in")
     print("[2] Exit") 
     user_choice1 = input("\nYour Choice: ")
@@ -18,7 +18,7 @@ while True:
     if user_choice1 == '1': #Will allow user to input their username and password
         while True:
             os.system('cls')
-            current_user = input("\nEnter your username: ")
+            current_user = input("Enter your username: ")
             password = input("Enter your password: ")
             if current_user in accounts and accounts[current_user] == password:
                 print("\nLoading ", end="")
@@ -42,11 +42,9 @@ while True:
                 admin.options() 
                 user_choice2 = input("\nYour Choice: ")
                 if user_choice2 == '1': #Allow the admin to create an announcement
-                    os.system('cls')
                     time.sleep(0.5)
                     admin.announcement_admin()
                 elif user_choice2 == '2': #Allow the admin to add liabilities
-                    os.system('cls')
                     time.sleep(0.5)
                     admin.liab_admin()
                 elif user_choice2 == '3': #Allow the admin to see the attendance table and the people at dorm
@@ -61,7 +59,7 @@ while True:
                         time.sleep(1)
                         print(".", end="", flush=True)
                     time.sleep(1)
-                    print("\nYou have logged out.")
+                    print("\nYou have logged out!")
                     time.sleep(1.5)
                     break
                 else: #Error-handler
@@ -86,7 +84,6 @@ while True:
                         print("[Back]")
                         user_choice3 = input("\nYour Choice: ")
                         if user_choice3 == "Back":
-                            os.system('cls')
                             break
                         else:
                             print("\nInvalid choice. Please try again!")
@@ -94,7 +91,7 @@ while True:
                             continue
                     elif user_choice2 == '2': #for Attendance
                         os.system('cls')
-                        print("\n[1] Time-in")
+                        print("[1] Time-in")
                         print("[2] Time-out")
                         print("[3] Who's currently at home?")
                         print("[4] Back")
@@ -115,6 +112,7 @@ while True:
                             break
                         else: 
                             print("\nInvalid choice. Please try again!")
+                            time.sleep(1)
                             continue
                     elif user_choice2 == '3': #Log-out
                         print("\nLogging out ", end="")
@@ -128,6 +126,7 @@ while True:
                         flag = False
                     else: 
                         print("\nInvalid choice. Please try again!")
+                        time.sleep(1)
                         break
     elif user_choice1 == '2': #Exit the system
         sys.exit()

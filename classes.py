@@ -32,10 +32,10 @@ class Admin:
         with open('announcement.txt', 'r') as f:
             announcements = f.readlines()
             if announcements:
-                print('\nList of announcements:')
+                print('List of announcements:')
                 [print(f'[{i+1}.] {announcement.strip()}') for i, announcement in enumerate(announcements)]
             else:
-                print("\nNo Announcement to be shown")
+                print("No Announcement to be shown")
 
     def announcement_admin(self): 
         """
@@ -52,7 +52,7 @@ class Admin:
         """
         while True:
             os.system('cls')
-            print("\n[1] View all announcements")
+            print("[1] View all announcements")
             print("[2] Create a new announcement")
             print("[3] Remove an announcement")
             print("[4] Back")
@@ -72,8 +72,9 @@ class Admin:
                         continue
 
             elif choice == '2': #For Adding Announcement
+                os.system('cls')
                 with open('announcement.txt', 'a') as f:
-                    f.write(input("\nWhat do you want to announce? "))
+                    f.write(input("What do you want to announce? "))
                     f.write("\n")
                     print("\nYour announcement has been added!")
                 time.sleep(1.5)
@@ -133,7 +134,7 @@ class Admin:
         - None
         """ 
         table = pd.read_csv("attendance.csv")
-        print("\n", table, "\n")
+        print(table, "\n")
 
     def who_is_at_home(self):
         """
@@ -198,7 +199,7 @@ class Admin:
         # while here is used for the program to completely works as intended
         while True:
             os.system('cls')
-            print("\nWhat do you want to do?")
+            print("What do you want to do?")
             print("[1] Add liability to all")
             print("[2] Remove liability to all")
             print("[3] Assign liability to a specific user")
@@ -225,9 +226,9 @@ class Admin:
                     Returns: None
                 """
                 os.system('cls')
-                liab_name = input("\nInput the name of liability: ")
+                liab_name = input("Input the name of liability: ")
                 liab_price = input("Price: ")
-                price = int(liab_price)
+                price = (liab_price)
                 liabilities[liab_name] = price
                 with open('liabs_of_users/liabilities.txt', 'a') as f:   #writes the inputted liability inside the TXT file
                     f.write(f"{liab_name}:{price}\n")
@@ -261,7 +262,7 @@ class Admin:
                                 liabilities[name] = price
 
                         if len(liabilities) != 0:
-                            print("\nWhich liability do you want to remove?")
+                            print("Which liability do you want to remove?")
                             for i, name in enumerate(liabilities):
                                 print(f"[{i+1}] {name}: {liabilities[name]}")
                             option_1 = input("\nInput the number of the liability you want to remove, or type 0 to cancel: ")
@@ -279,11 +280,12 @@ class Admin:
                                         f.write(f"{name}:{price}\n")
                                 print(f"\n{name} has been removed.")
                                 break
-                                time.sleep(0.5) 
                             else:
                                 print("\nInvalid input! Please try again!")
+                                time.sleep(0.5) 
                         else:
-                            print("\nNo liabilities to be removed")
+                            print("No liabilities to be removed")
+                            time.sleep(2)
                             break
 
                 
@@ -303,10 +305,11 @@ class Admin:
                     None
 
                 """
-                os.system('cls')
+                
                 while True:
-                    print("\nWhich user do you want to assign a liability to?")
-                    option_1 = input("Insert his/her username: ")
+                    os.system('cls')
+                    print("Which user do you want to assign a liability to?")
+                    option_1 = input("\nInsert his/her username: ")
                     file_dict = {'Mochu': 'liabs_of_users/mochu.txt', # dictionary that maps usernames to filenames
                                 'Russel': 'liabs_of_users/russel.txt',
                                 'Gian': 'liabs_of_users/gian.txt',
@@ -315,7 +318,7 @@ class Admin:
                     if option_1 in file_dict: # check if the entered username is in the dictionary
                         liab_name = input("Input the name of liability: ")
                         liab_price = input("Price: ")
-                        price = int(liab_price)
+                        price = (liab_price)
                         liabilities[liab_name] = price
 
                         with open(file_dict[option_1], 'a') as f:
@@ -324,8 +327,9 @@ class Admin:
                         break
                     else:
                         print("\nInvalid username! Please try again!")
+                        time.sleep(1)
                         continue
-                time.sleep(1)
+                
             elif option == '4':
                 """
                 Allows the user to remove a liability from a specified user's file.
@@ -343,10 +347,10 @@ class Admin:
                     'Gian': 'liabs_of_users/gian.txt',
                     'Luna': 'liabs_of_users/luna.txt',
                 }
-
                 flag = True
                 while True:
-                    option_1 = input("\nEnter the username of the person from whom you want to remove a liability: ")
+                    os.system('cls')
+                    option_1 = input("Enter the username of the person from whom you want to remove a liability: ")
                     filename = username_to_file.get(option_1)
 
                     if filename:
@@ -355,6 +359,7 @@ class Admin:
 
                         if not liab1:
                             print("\nNo liabilities to be removed")
+                            time.sleep(2)
                             break
 
                         liab_list = liab1.split('\n')  # convert to list of liabilities
@@ -369,6 +374,7 @@ class Admin:
                             item_to_remove = liab_list[item_number - 1]  # get the specified item
                         except IndexError:
                             print("\nInvalid input! Please try again!")
+                            time.sleep(1)
                             continue
 
                         liab_list.remove(item_to_remove)  # remove the specified item
@@ -380,7 +386,8 @@ class Admin:
                         print(f"\n{item_to_remove} has been removed successfully.")
                         break
                     else:
-                        print("\nInvalid username!")
+                        print("\nInvalid username! Please Try Again!")
+                        time.sleep(1)
                         continue
 
 
@@ -388,6 +395,7 @@ class Admin:
                 break
             else:
                 print("\nInvalid input! Please try again")
+                time.sleep(0.5) 
                 continue
 
     def options(self):
@@ -403,7 +411,7 @@ class Admin:
         Returns:
         - None
         """
-        print("\n[1] Make an Announcement")
+        print("[1] Make an Announcement")
         print("[2] Add/Remove Liabilities")
         print("[3] View Attendance")
         print("[4] Log out")
@@ -443,19 +451,31 @@ class Regular(Admin):
                 "School", "Meeting with Friends", "Meeting with family", "Going Home", "Buy Grocery", "Other Reason")
             
             if choice == '2': # Getting the reason of the user for time-out
-                print("\nSelect your reason for leaving: ")
-                for i, reason in enumerate(reasons_collection):
-                    print(f"[{i + 1}] {reason}")
+                while True:
+                    os.system('cls')
+                    print("Select your reason for leaving: ")
+                    for i, reason in enumerate(reasons_collection):
+                        print(f"[{i + 1}] {reason}")
 
-                main_reason = int(input("\nYour Choice: "))
-                reason = reasons_collection[main_reason - 1] if main_reason <= 5 else input(
-                    "Please specify your reason for leaving: ")
-                
-                print(f"\n{self.username} is Time-out! Reason:", reason)
-                for i in range(len(rows)):
-                    if self.username in rows[i]:
-                        rows[i][2] = reason
+                    main_reason = input("\nYour Choice: ")
 
+                    if main_reason in ['1', '2', '3', '4', '5']:
+                        reason = reasons_collection[int(main_reason) - 1]
+                        break
+                    elif main_reason == '6':
+                        reason = input("\nPlease specify your reason for leaving: ")
+                        break
+                    else:
+                        print("\nInvalid Input!")
+                        time.sleep(1)
+                        continue
+
+                if main_reason in ['1', '2', '3', '4', '5', '6']:
+                    print(f"\n{self.username} is Time-out! Reason:", reason)
+                    for i in range(len(rows)):
+                        if self.username in rows[i]:
+                            rows[i][2] = reason
+   
             if choice == '1': # Change reasons to default
                 print(f"\n{self.username} is Time-in!")
                 for i in range(len(rows)):
@@ -497,7 +517,7 @@ class Regular(Admin):
                 for i, liab in enumerate(liab_list):
                     print(f"{i+1}. {liab}")
             else:
-                print("\nNo liabilities")
+                print("No liabilities")
 
     def options(self):
         """
