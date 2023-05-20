@@ -21,7 +21,7 @@ while True:
             current_user = input("Enter your username: ")
             password = input("Enter your password: ")
             if current_user in accounts and accounts[current_user] == password:
-                print("\nLoading ", end="")
+                print("\nLoading", end="")
                 for i in range(3):
                     time.sleep(1)
                     print(".", end="", flush=True)
