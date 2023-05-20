@@ -1,6 +1,9 @@
 import csv
 import sys
 import pandas as pd
+import os
+import time
+import pygame
 
 user_liabs = {
     'Russel': 'liabs_of_users/russel.txt',
@@ -48,6 +51,7 @@ class Admin:
         - None
         """
         while True:
+            os.system('cls')
             print("\n[1] View all announcements")
             print("[2] Create a new announcement")
             print("[3] Remove an announcement")
@@ -56,6 +60,7 @@ class Admin:
             choice = input("\nYour Choice: ")
             if choice == '1': #For Viewing Announcement
                 while True:
+                    os.system('cls')
                     self.show_announcement()
                     choice2 = input("\nType 0 to back: ")
 
@@ -63,6 +68,7 @@ class Admin:
                         break
                     else:
                         print("\nInvalid Choice! Please Try Again!")
+                        time.sleep(1)
                         continue
 
             elif choice == '2': #For Adding Announcement
@@ -70,8 +76,10 @@ class Admin:
                     f.write(input("\nWhat do you want to announce? "))
                     f.write("\n")
                     print("\nYour announcement has been added!")
+                time.sleep(1.5)
             
             elif choice == '3': #For Removing Announcement
+                    os.system('cls')
                     with open('announcement.txt', 'r') as f:
                         announcements = f.readlines()
                     if announcements:
@@ -87,13 +95,29 @@ class Admin:
                             print('\nInvalid Choice!')
                     else:
                         print("\nNo Announcement to be removed")
+                    while True:
+                        choice4 = input("\nType 0 to return: ")
+
+                        if choice4 == '0':
+                            break
+                        else:
+                            print("\nInvalid Choice! Please Try Again!")
+                            time.sleep(1)
+                            continue
 
             elif choice == '4':
-                print("\nExiting admin announcement...")
+                print("\nExiting admin announcement", end="" )
+                for i in range(3):
+                    time.sleep(1)
+                    print(".", end="", flush=True)
+
+                time.sleep(2)
+                os.system('cls')
                 break
             
             else:
                 print("\nInvalid input! Please try again")
+                time.sleep(1)
 
     def attendace_table(self):
         """
@@ -131,6 +155,15 @@ class Admin:
             for i in range(len(rows)):
                 if rows[i][1] == 'Time-in':
                     print(f"{rows[i][0]} is currently at home.")
+
+        while True:
+            choice4 = input("\nType 0 to return: ")
+            if choice4 == '0':
+                break
+            else:
+                print("\nInvalid Choice! Please Try Again!")
+                time.sleep(1)
+                continue
     
     def liab_admin(self):
         """
@@ -164,6 +197,7 @@ class Admin:
         #This is the menu option for the admin liab management
         # while here is used for the program to completely works as intended
         while True:
+            os.system('cls')
             print("\nWhat do you want to do?")
             print("[1] Add liability to all")
             print("[2] Remove liability to all")
@@ -190,6 +224,7 @@ class Admin:
 
                     Returns: None
                 """
+                os.system('cls')
                 liab_name = input("\nInput the name of liability: ")
                 liab_price = input("Price: ")
                 price = int(liab_price)
@@ -197,6 +232,7 @@ class Admin:
                 with open('liabs_of_users/liabilities.txt', 'a') as f:   #writes the inputted liability inside the TXT file
                     f.write(f"{liab_name}:{price}\n")
                 print(f"\n{liab_name} has been added with price {price}.")
+                time.sleep(1)
             
             elif option == '2':
                 """
@@ -217,6 +253,7 @@ class Admin:
                     the user that there are no liabilities to be removed.
                 """
                 while True:
+                    os.system('cls')
                     with open('liabs_of_users/liabilities.txt', 'r') as f:
                         file_contents = f.read()
                         if len(file_contents) != 0:
@@ -236,10 +273,13 @@ class Admin:
                                     for name, price in liabilities.items():
                                         f.write(f"{name}:{price}\n")
                                 print(f"\n{name} has been removed.")
-                                break
+                                break 
+                                time.sleep(0.5) 
                             else:
                                 print("\nInvalid input! Please try again!")
+                                time.sleep(1)
                                 continue
+
                         else:
                             print("\nNo liabilities to be removed")
                             print("[Back]") 
@@ -249,8 +289,10 @@ class Admin:
                                 break          
                             else:
                                 print("\nInvalid choice! Please try again!")
+                                time.sleep(1)
                                 continue
-
+                time.sleep(1)
+                    
                 
             elif option == '3':
                 """
@@ -268,6 +310,7 @@ class Admin:
                     None
 
                 """
+                os.system('cls')
                 while True:
                     print("\nWhich user do you want to assign a liability to?")
                     option_1 = input("Insert his/her username: ")
@@ -288,7 +331,9 @@ class Admin:
                         break
                     else:
                         print("\nInvalid username! Please try again!")
+                        time.sleep(1)
                         continue
+                time.sleep(1)
             elif option == '4':
                 """
                 Allows the user to remove a liability from a specified user's file.
@@ -306,7 +351,7 @@ class Admin:
                     'Gian': 'liabs_of_users/gian.txt',
                     'Luna': 'liabs_of_users/luna.txt',
                 }
-
+                os.system('cls')
                 flag = True 
                 while flag == True:
                     option_1 = input("\nEnter the username of the person from whom you want to remove a liability: ")
@@ -329,6 +374,7 @@ class Admin:
                                     break
                                 else:
                                     print("\nInvalid choice. Please try again!")
+                                    time.sleep(1)
                                     continue
 
                             with open('liabs_of_users/liabilities.txt', 'r') as file2:
@@ -364,12 +410,15 @@ class Admin:
 
                     else:
                         print("\nInvalid username!")
+                        time.sleep(1)
                         continue
+                time.sleep(1)
 
             elif option == '5':
                 break
             else:
                 print("\nInvalid input! Please try again")
+                time.sleep(1)
                 continue
 
     def options(self):
@@ -393,6 +442,7 @@ class Admin:
 class Regular(Admin):
     def __init__(self, username):
         self.username = username
+        super().__init__(username)
 
     def attendance_checker(self, status, choice):
         """
