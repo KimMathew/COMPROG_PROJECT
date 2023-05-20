@@ -235,36 +235,41 @@ class Admin:
                 time.sleep(1)
             
             elif option == '2':
-                """
-                    "Remove liability to all"
+                    """
+                    "Remove liability from all"
 
                     If option is '2', remove a liability from a txt file containing a list of liabilities.
 
                     Args:
-                    - option: a string representing the user's option
+                        option (str): a string representing the user's option
 
                     Returns:
-                    - None
+                        None
 
                     The function prompts the user to input a number corresponding to the liability they want to remove,
                     or '0' to cancel the operation. If the input is invalid, the function continues prompting the user
                     until valid input is received. If the input is valid, the function removes the liability from the list
                     and updates the txt file with the remaining liabilities. If the txt file is empty, the function informs
                     the user that there are no liabilities to be removed.
-                """
-                while True:
-                    os.system('cls')
-                    with open('liabs_of_users/liabilities.txt', 'r') as f:
-                        file_contents = f.read()
-                        if len(file_contents) != 0:
-                            print("\nWhich liability you want to remove?")
+                    """
+                    while True:
+                        os.system('cls')
+                        with open('liabs_of_users/liabilities.txt', 'r') as f:
+                            liabilities = {}
+                            for line in f:
+                                name, price = line.strip().split(':')
+                                liabilities[name] = price
+
+                        if len(liabilities) != 0:
+                            print("\nWhich liability do you want to remove?")
                             for i, name in enumerate(liabilities):
                                 print(f"[{i+1}] {name}: {liabilities[name]}")
                             option_1 = input("\nInput the number of the liability you want to remove, or type 0 to cancel: ")
 
                             if option_1 == '0':
+                                print("Operation canceled.")
                                 break
-                            elif option_1.isdigit() and 1 <= int(option_1) <= len(liabilities): 
+                            elif option_1.isdigit() and 1 <= int(option_1) <= len(liabilities):
                                 index = int(option_1) - 1
                                 name = list(liabilities.keys())[index]
                                 del liabilities[name]
@@ -273,26 +278,14 @@ class Admin:
                                     for name, price in liabilities.items():
                                         f.write(f"{name}:{price}\n")
                                 print(f"\n{name} has been removed.")
-                                break 
+                                break
                                 time.sleep(0.5) 
                             else:
                                 print("\nInvalid input! Please try again!")
-                                time.sleep(1)
-                                continue
-
                         else:
                             print("\nNo liabilities to be removed")
-                            print("[Back]") 
-                            option_2= input("\nYour Choice: ")
+                            break
 
-                            if option_2 == 'Back':
-                                break          
-                            else:
-                                print("\nInvalid choice! Please try again!")
-                                time.sleep(1)
-                                continue
-                time.sleep(1)
-                    
                 
             elif option == '3':
                 """
@@ -331,7 +324,6 @@ class Admin:
                         break
                     else:
                         print("\nInvalid username! Please try again!")
-                        time.sleep(1)
                         continue
                 time.sleep(1)
             elif option == '4':
@@ -351,9 +343,9 @@ class Admin:
                     'Gian': 'liabs_of_users/gian.txt',
                     'Luna': 'liabs_of_users/luna.txt',
                 }
-                os.system('cls')
-                flag = True 
-                while flag == True:
+
+                flag = True
+                while True:
                     option_1 = input("\nEnter the username of the person from whom you want to remove a liability: ")
                     filename = username_to_file.get(option_1)
 
@@ -361,64 +353,41 @@ class Admin:
                         with open(filename, 'r') as file1:
                             liab1 = file1.read().strip()
 
-                        flag1 = True
-                        while flag1 == True:
-                            if not liab1:
-                                print("\nNo liabilities to be removed")
-                                print("[Back]") 
-                                option_2 = input("\nYour Choice: ")
-
-                                if option_2 == "Back":
-                                    flag1 = False
-                                    flag = False
-                                    break
-                                else:
-                                    print("\nInvalid choice. Please try again!")
-                                    time.sleep(1)
-                                    continue
-
-                            with open('liabs_of_users/liabilities.txt', 'r') as file2:
-                                liab2 = file2.read()
-
-                            liab_all = liab1 + liab2
-                            liab_list = liab_all.split('\n')  # convert to list of liabilities
-                            print("\nThe following liabilities are currently listed:")
-
-                            for i, liab in enumerate(liab_list):
-                                print(f"[{i+1}] {liab}")
-
-                            item_number = int(input("\nEnter the corresponding number of the liability you want to remove: "))
-                            try:
-                                item_to_remove = liab_list[item_number-1]  # get the specified item
-                            except IndexError:
-                                print("\nInvalid input! Please try again!")
-                                continue  
-
-                            liab_list.remove(item_to_remove)  # remove the specified item
-                            liab_all = '\n'.join(liab_list)  # convert back to string
-
-                            with open(filename, 'w') as file1:
-                                file1.write(liab_all)
-
-                            with open('liabs_of_users/liabilities.txt', 'w') as file2:
-                                file2.write(liab_all)
-
-                            print(f"\n{item_to_remove} has been removed successfully.")
-                            flag1 = False
-                            flag = False
+                        if not liab1:
+                            print("\nNo liabilities to be removed")
                             break
 
+                        liab_list = liab1.split('\n')  # convert to list of liabilities
+                        print("\nThe following liabilities are currently listed:")
+
+                        for i, liab in enumerate(liab_list):
+                            print(f"[{i+1}] {liab}")
+
+                        item_number = int(input("\nEnter the corresponding number of the liability you want to remove: "))
+
+                        try:
+                            item_to_remove = liab_list[item_number - 1]  # get the specified item
+                        except IndexError:
+                            print("\nInvalid input! Please try again!")
+                            continue
+
+                        liab_list.remove(item_to_remove)  # remove the specified item
+                        liab_all = '\n'.join(liab_list)  # convert back to string
+
+                        with open(filename, 'w') as file1:
+                            file1.write(liab_all)
+
+                        print(f"\n{item_to_remove} has been removed successfully.")
+                        break
                     else:
                         print("\nInvalid username!")
-                        time.sleep(1)
                         continue
-                time.sleep(1)
+
 
             elif option == '5':
                 break
             else:
                 print("\nInvalid input! Please try again")
-                time.sleep(1)
                 continue
 
     def options(self):
