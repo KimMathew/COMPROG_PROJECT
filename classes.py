@@ -447,6 +447,13 @@ class Regular(Admin):
                     rows[i][1] = status
                     break
 
+            if choice == '1': # Change reasons to default
+                print(f"\n{self.username} is Time-in!")
+                for i in range(len(rows)):
+                    if self.username in rows[i]:
+                        rows[i][2] = "none"
+                        break
+
             reasons_collection = ( # Updating the reasons
                 "School", "Meeting with Friends", "Meeting with family", "Going Home", "Buy Grocery", "Other Reason")
             
@@ -475,13 +482,6 @@ class Regular(Admin):
                     for i in range(len(rows)):
                         if self.username in rows[i]:
                             rows[i][2] = reason
-   
-            if choice == '1': # Change reasons to default
-                print(f"\n{self.username} is Time-in!")
-                for i in range(len(rows)):
-                    if self.username in rows[i]:
-                        rows[i][2] = "none"
-                        break
                     
         with open('attendance.csv', mode='w', newline='') as csv_file:
             writer = csv.writer(csv_file)
