@@ -107,7 +107,6 @@ while True:
                         elif user_choice3 == '3':  #Allow the user to see the people currently at dorm
                             os.system('cls')
                             regular.who_is_at_home()
-
                         elif user_choice3 == '4': #back
                             break
                         else: 
