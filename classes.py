@@ -368,7 +368,7 @@ class Admin:
                         for i, liab in enumerate(liab_list):
                             print(f"[{i+1}] {liab}")
 
-                        item_number = int(input("\nEnter the corresponding number of the liability you want to remove: "))
+                        item_number = int(input("\nInput the number of the liability you want to remove, or type 0 to cancel: "))
 
                         try:
                             item_to_remove = liab_list[item_number - 1]  # get the specified item
